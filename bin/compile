@@ -1,10 +1,14 @@
 #!/bin/bash
 
+warn() {
+  echo "!!! ---> $*"
+}
+
 export TMP=/app/.temp
 export GODEPS=$TMP/Godeps/Godeps.json
 
 if ! < $GODEPS jq -r . > /dev/null; then
-  echo "$GODEPS invalid!!"
+  warn "$GODEPS invalid!!"
   exit 1
 fi
 
@@ -13,8 +17,8 @@ goVerWanted=$(< $GODEPS jq -r .GoVersion)
 goVerHave=$(go version | cut -d \  -f 3)
 
 if [ "$goVerWanted" != "$goVerHave" ]; then
-  echo "Godeps/Godeps.json specifies $goVerWanted"
-  echo "Docker image supports $goVerHave"
+  warn "Godeps/Godeps.json specifies $goVerWanted"
+  warn "Docker image supports $goVerHave"
   exit 1
 fi
 
