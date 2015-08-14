@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -ex
-
 export TMP=/app/.temp
 export GODEPS=$TMP/Godeps/Godeps.json
 
