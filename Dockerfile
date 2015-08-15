@@ -6,7 +6,7 @@ RUN mkdir -p /app/user && \
 
 WORKDIR /app/user
 
-ENV GOVERSION 1.4.2
+ENV GOVERSION 1.5rc1
 ENV STACK cedar-14
 ENV HOME /app
 ENV GOROOT /app/.cache/go
