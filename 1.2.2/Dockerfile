@@ -28,4 +28,4 @@ COPY ./compile /app/.cache/gotools/bin/compile
 COPY ./go-docker.sh /app/.profile.d/go-docker.sh
 
 ONBUILD COPY . /app/.temp
-ONBUILD RUN /app/heroku/gotools/bin/compile
+ONBUILD RUN /app/.cache/gotools/bin/compile
