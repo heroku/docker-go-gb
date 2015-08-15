@@ -23,9 +23,9 @@ ENV GOPATH /app/user
 
 ENV PATH $GOPATH/bin:$PATH
 
-COPY ./bin/compile /app/heroku/gotools/bin/compile
+COPY ./compile /app/.cache/gotools/bin/compile
 
-COPY ./profile.d/go-docker.sh /app/.profile.d/go-docker.sh
+COPY ./go-docker.sh /app/.profile.d/go-docker.sh
 
 ONBUILD COPY . /app/.temp
 ONBUILD RUN /app/heroku/gotools/bin/compile
