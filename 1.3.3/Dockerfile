@@ -13,19 +13,11 @@ ENV GOROOT /app/.cache/go
 ENV GOPATH /app/.cache/gotools
 
 RUN curl -s --retry 3 -L https://storage.googleapis.com/golang/go$GOVERSION.linux-amd64.tar.gz | tar xz -C /app/.cache
-ENV PATH $GOPATH/bin:$GOROOT/bin:$PATH
+ENV PATH /app/user/bin:$GOPATH/bin:$GOROOT/bin:$PATH
 
-RUN go get -v github.com/tools/godep
-RUN curl -s --retry 3 -L https://github.com/stedolan/jq/releases/download/jq-1.4/jq-linux-x86_64 -o $GOPATH/bin/jq && \
-    chmod a+x $GOPATH/bin/jq
-
-ENV GOPATH /app/user
-
-ENV PATH $GOPATH/bin:$PATH
-
-COPY ./compile /app/.cache/gotools/bin/compile
+RUN go get -v github.com/constabulary/gb/...
 
 COPY ./go-docker.sh /app/.profile.d/go-docker.sh
 
-ONBUILD COPY . /app/.temp
-ONBUILD RUN /app/.cache/gotools/bin/compile
+ONBUILD COPY . /app/user
+ONBUILD RUN gb info && gb build
