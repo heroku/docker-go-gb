@@ -6,12 +6,13 @@ RUN mkdir -p /app/user && \
 
 WORKDIR /app/user
 
+ENV GOVERSION=1.4.2
 ENV STACK "cedar-14"
 ENV HOME /app
 ENV GOROOT /app/.cache/go
 ENV GOPATH /app/.cache/gotools
 
-RUN curl -s --retry 3 -L https://storage.googleapis.com/golang/go1.4.2.linux-amd64.tar.gz | tar xz -C /app/.cache
+RUN curl -s --retry 3 -L https://storage.googleapis.com/golang/go$GOVERSION.linux-amd64.tar.gz | tar xz -C /app/.cache
 ENV PATH $GOPATH/bin:$GOROOT/bin:$PATH
 
 RUN go get -v github.com/tools/godep
