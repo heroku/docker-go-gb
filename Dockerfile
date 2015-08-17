@@ -20,4 +20,5 @@ RUN go get -v github.com/constabulary/gb/...
 COPY ./go-docker.sh /app/.profile.d/go-docker.sh
 
 ONBUILD COPY . /app/user
-ONBUILD RUN gb info && gb build
+ONBUILD RUN gb info && \
+            gb build
