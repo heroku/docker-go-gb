@@ -1,7 +1,6 @@
 # Heroku Go Docker image using [GB](https://github.com/constabulary/gb)
 
-For use with the [heroku docker
-plugin](https://github.com/heroku/heroku-docker).
+For use with the [heroku docker plugin](https://github.com/heroku/heroku-docker).
 
 ## Image tags
 
@@ -31,8 +30,7 @@ both  `Dockerfile` and `docker-compose.yml` files.
 
 ### Example app.json
 
-Source can be found
-[here](https://github.com/heroku-examples/go-websocket-chat-demo-gb/blob/master/app.json).
+Source can be found [here](https://github.com/heroku-examples/go-websocket-chat-demo-gb/blob/master/app.json).
 
 ```json
 {
@@ -52,3 +50,9 @@ Source can be found
   ]
 }
 ```
+
+## Slug Size
+
+The images are large but the slugs created by `heroku docker:release` only
+include your application's code, dependencies & compiled binaries so should be
+relatively small.
