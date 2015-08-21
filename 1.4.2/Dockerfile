@@ -17,7 +17,7 @@ ENV PATH /app/user/bin:$GOPATH/bin:$GOROOT/bin:$PATH
 
 RUN go get -v github.com/constabulary/gb/...
 
-COPY ./go-docker.sh /app/.profile.d/go-docker.sh
+COPY ./go-gb-docker.sh /app/.profile.d/go-gb-docker.sh
 
 ONBUILD COPY . /app/user
 ONBUILD RUN gb info && \

@@ -13,6 +13,6 @@ for version in "${versions[@]}"; do
    (
 		 set -x
 		 < Dockerfile sed -E 's/^(ENV GOVERSION) .*/\1 '"$version"'/' > $version/Dockerfile
-     cp go-docker.sh $version/
+     cp go-gb-docker.sh $version/
   )
 done
