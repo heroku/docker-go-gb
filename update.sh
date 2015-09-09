@@ -13,5 +13,6 @@ for version in "${versions[@]}"; do
    (
 		 set -x
 		 < Dockerfile sed -E 's|^(FROM heroku/go-base:).*|\1'"$version"'|' > $version/Dockerfile
+		 cp go-gb-docker.sh $version/
   )
 done
