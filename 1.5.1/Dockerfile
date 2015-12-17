@@ -4,7 +4,7 @@ RUN mkdir -p /app/.cache/gotools /app/.profile.d
 
 ENV GOPATH /app/.cache/gotools
 ENV PATH /app/user/bin:$GOPATH/bin:$PATH
-ENV GBVERSION v0.3.4
+ENV GBVERSION v0.3.5
 
 RUN mkdir -p $GOPATH/src/github.com/constabulary && \
     cd $GOPATH/src/github.com/constabulary && \
