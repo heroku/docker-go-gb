@@ -4,13 +4,13 @@ RUN mkdir -p /app/.cache/gotools /app/.profile.d
 
 ENV GOPATH /app/.cache/gotools
 ENV PATH /app/user/bin:$GOPATH/bin:$PATH
-ENV GBVERSION v0.4.0
+ENV GBVERSION 0.4.0
 
 RUN mkdir -p $GOPATH/src/github.com/constabulary && \
     cd $GOPATH/src/github.com/constabulary && \
-    git clone https://github.com/constabulary/gb.git && \
+    curl -s "https://codeload.github.com/constabulary/gb/tar.gz/v$GBVERSION" | tar zxf - && \
+    mv gb-$GBVERSION gb && \
     cd gb && \
-    git checkout $GBVERSION && \
     go install -v ./... && \
     cd $GOPATH && \
     rm -rf src pkg
