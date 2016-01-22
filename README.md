@@ -20,7 +20,7 @@ application's `app.json` file like so:
 
 ```json
 {
-  "image": "heroku/go-gb:<go version or latest>",
+  "image": "heroku/go-gb:<major go version or `latest`>",
 }
 ```
 
@@ -40,7 +40,7 @@ Source can be found [here](https://github.com/heroku-examples/go-websocket-chat-
     "redis",
     "go"
   ],
-  "image": "heroku/go-gb:1.4.2",
+  "image": "heroku/go-gb:1.5",
   "website": "http://github.com/heroku-examples/go-websocket-chat-demo",
   "repository": "http://github.com/heroku-examples/go-websocket-chat-demol",
   "scripts": {},
